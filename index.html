@@ -1,1 +1,368 @@
-<p>shit</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>openshit</title>
+<meta name="description" content="shit">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: 40 33% 97%;
+    --paper-2: 40 25% 94%;
+    --ink: 40 12% 8%;
+    --ink-2: 40 8% 32%;
+    --ink-3: 40 6% 52%;
+    --rule: 40 14% 85%;
+    --rule-2: 40 12% 90%;
+    --sheet: 0 0% 100%;
+    --accent: 205 85% 52%;
+    --accent-ink: 207 81% 44%;
+    --accent-soft: 206 100% 97%;
+    --marker: 48 96% 80%;
+    --font-display: "Fraunces Variable", "Fraunces", Georgia, serif;
+    --font-sans: "satoshi", system-ui, -shit-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+    --shadow-sheet: 0 1px 0 #d3cec5, 0 8px 24px -12px #3d362940;
+    --ease: cubic-bezier(.2, 0, 0, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; border-radius: 0 !important; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background-color: hsl(var(--paper));
+    color: hsl(var(--ink));
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-y: scroll;
+  }
+
+  a { color: inherit; }
+
+  /* ---------- hero ---------- */
+  .hero { width: 100%; border-bottom: 1px solid hsl(var(--rule)); }
+
+  .hero__inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 56px 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .hero__copy { min-width: 0; }
+
+  .hero__title {
+    margin: 0;
+    max-width: 14ch;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 1.6rem + 3.8vw, 4.25rem);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    color: hsl(var(--ink));
+    font-variation-settings: "opsz" 96;
+  }
+
+  .hero__lede {
+    margin: 24px 0 0;
+    max-width: 52ch;
+    font-size: 1.125rem;
+    line-height: 1.625;
+    color: hsl(var(--ink-2));
+  }
+
+  .hero__actions {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 24px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color .12s var(--ease), color .12s var(--ease);
+  }
+
+  .btn--primary {
+    height: 48px;
+    padding: 0 24px;
+    font-size: 1rem;
+    background-color: hsl(var(--accent));
+    color: #fff;
+  }
+  .btn--primary:hover { background-color: hsl(var(--accent-ink)); }
+
+  .btn--link {
+    height: auto;
+    padding: 0;
+    font-size: 0.875rem;
+    color: hsl(var(--ink));
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+  .btn--link::after { content: "\2192"; display: inline-block; transition: transform .12s var(--ease); }
+  .btn--link:hover { color: hsl(var(--accent)); }
+  .btn--link:hover::after { transform: translateX(2px); }
+
+  .hero__note {
+    margin: 24px 0 0;
+    max-width: 52ch;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: hsl(var(--ink-3));
+  }
+
+  .hero__meta {
+    margin: 12px 0 0;
+    max-width: 52ch;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: hsl(var(--ink-2));
+  }
+
+  .hero__meta a {
+    text-decoration: underline;
+    text-decoration-color: hsl(var(--rule));
+    text-underline-offset: 4px;
+  }
+  .hero__meta a:hover { color: hsl(var(--accent)); text-decoration-color: hsl(var(--accent)); }
+
+  /* ---------- showcase ---------- */
+  .showcase { margin: 0; min-width: 0; }
+
+  .showcase__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .card {
+    position: relative;
+    background-color: hsl(var(--sheet));
+    border: 1px solid hsl(var(--rule-2));
+    box-shadow: var(--shadow-sheet);
+    min-width: 0;
+  }
+
+  .card__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px 12px;
+    padding: 10px 16px;
+    border-bottom: 1px solid hsl(var(--rule-2));
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: hsl(var(--ink-3));
+  }
+  .card__head span { white-space: nowrap; }
+  .card__head .normal { text-transform: none; }
+  .card__head .count { color: hsl(var(--ink-2)); font-variant-numeric: tabular-nums; }
+
+  .card__body { padding: 16px; }
+
+  .card__title {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: hsl(var(--ink));
+  }
+
+  .card__text {
+    margin: 8px 0 0;
+    font-size: 0.875rem;
+    line-height: 1.625;
+    color: hsl(var(--ink-2));
+  }
+
+  .eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: hsl(var(--ink-3));
+  }
+  .card__body > .eyebrow + .card__title { margin-top: 8px; }
+
+  .tags {
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 6px;
+    border: 1px solid hsl(var(--accent-soft));
+    background-color: hsl(var(--accent-soft));
+    color: hsl(var(--accent));
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+
+  .tag--missing {
+    border: 1px dashed hsl(var(--ink-3));
+    background-color: transparent;
+    color: hsl(var(--ink-3));
+  }
+
+  .bullets {
+    margin: 8px 0 0;
+    padding-left: 16px;
+    list-style: disc;
+    font-size: 0.875rem;
+    line-height: 1.625;
+    color: hsl(var(--ink-2));
+  }
+  .bullets li { margin-top: 8px; }
+  .bullets li::marker { color: hsl(var(--ink-3)); }
+
+  mark {
+    background-color: hsl(var(--marker));
+    color: hsl(var(--ink));
+    padding: 0 0.15em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .skills {
+    margin: 16px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid hsl(var(--rule-2));
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: hsl(var(--ink-2));
+  }
+  .skills .label {
+    margin-right: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: hsl(var(--ink-3));
+  }
+
+  .showcase__caption {
+    margin: 16px 0 0;
+    max-width: 52ch;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: hsl(var(--ink-3));
+  }
+
+  @media (min-width: 640px) {
+    .showcase__grid { grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); }
+    .showcase__grid .card--offset { margin-top: 32px; }
+  }
+
+  @media (min-width: 768px) {
+    .hero__inner { padding: 80px 32px; }
+  }
+
+  @media (min-width: 1024px) {
+    .hero__inner {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 24px;
+      row-gap: 48px;
+    }
+    .hero__copy { grid-column: span 6 / span 6; padding-right: 24px; }
+    .showcase { grid-column: span 6 / span 6; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__copy">
+      <h1 class="hero__title">shit shit shit shit shit shit shit.</h1>
+      <p class="hero__lede">shit shit shit shit shit shit shit shit shit. shit shit shit shit shit shit shit shit shit shit shit shit, shit shit shit shit shit shit — shit shit shit shit shit shit shit shit shit shit, shit shit shit shit shit shit shit shit shit.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#">shit shit shit — shit</a>
+        <a class="btn btn--link" href="#">shit shit shit shit</a>
+      </div>
+      <p class="hero__note">shit shit shit. shit shit. shit shit shit shit, shit shit shit.</p>
+      <p class="hero__meta">shit shit shit shit shit shit <a href="#">shit</a>, <a href="#">shit</a>, <a href="#">shit</a>, <a href="#">shit</a> shit <a href="#">shit shit</a>.</p>
+    </div>
+
+    <figure class="showcase" id="tailoring-pass">
+      <div class="showcase__grid">
+        <div class="card">
+          <div class="card__head"><span>shit</span></div>
+          <div class="card__body">
+            <p class="card__title">shit shit shit, shit</p>
+            <p class="card__text">shit shit shit shit shit shit, shit shit shit shit, shit shit shit shit shit-shit shit. shit shit: shit, shit shit shit shit, shit shit, shit shit. shit shit shit: shit, shit.</p>
+            <ul class="tags">
+              <li><span class="tag">shit</span></li>
+              <li><span class="tag">shit</span></li>
+              <li><span class="tag">shit shit</span></li>
+              <li><span class="tag">shit-shit</span></li>
+              <li><span class="tag">shit</span></li>
+              <li><span class="tag">shit</span></li>
+              <li><span class="tag">shit</span></li>
+              <li><span class="tag tag--missing">shit</span></li>
+              <li><span class="tag">shit</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card card--offset">
+          <div class="card__head">
+            <span>shit · <span class="normal">shit</span></span>
+            <span><span class="count">shit shit shit / shit</span></span>
+          </div>
+          <div class="card__body">
+            <p class="eyebrow">shit</p>
+            <p class="card__title">shit shit · shit</p>
+            <ul class="bullets">
+              <li><mark>shit shit shit shit</mark><span> shit shit </span><mark>shit shit</mark><span> shit shit, </span><mark>shit shit shit shit</mark><span> shit shit shit shit shit.</span></li>
+              <li><span>shit shit shit shit shit </span><mark>shit-shit shit</mark><span> shit shit; shit shit shit shit shit </span><mark>shit</mark><span> shit.</span></li>
+              <li><span>shit shit shit </span><mark>shit</mark><span> shit </span><mark>shit</mark><span> shit shit shit shit shit shit.</span></li>
+            </ul>
+            <p class="skills"><span class="label">shit</span>shit · shit · shit shit</p>
+          </div>
+        </div>
+      </div>
+      <figcaption class="showcase__caption">shit shit shit shit shit. shit shit shit shit shit shit shit shit shit shit, shit shit shit'shit shit.</figcaption>
+    </figure>
+  </div>
+</section>
+</body>
+</html>
